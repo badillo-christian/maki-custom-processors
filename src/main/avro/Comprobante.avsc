@@ -1,0 +1,272 @@
+{
+	"type": "record",
+	"name": "Comprobante",
+	"namespace": "com.praxis.maki.model",
+	"fields": [{
+		"name": "moneda",
+		"type": "string"
+	}, {
+		"name": "subTotal",
+		"type": "double"
+	}, {
+		"name": "condicionesDePago",
+		"type": "string"
+	}, {
+		"name": "total",
+		"type": "double"
+	}, {
+		"name": "lugarExpedicion",
+		"type": "string"
+	}, {
+		"name": "complemento",
+		"type": {
+			"type": "record",
+			"name": "comprobante",
+			"namespace": "complemento",
+			"fields": [{
+				"name": "timbreFiscalDigital",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "timbreFiscalDigital.complemento",
+					"fields": [{
+						"name": "fechaTimbrado",
+						"type": "string"
+					}, {
+						"name": "noCertificadoSAT",
+						"type": "string"
+					}, {
+						"name": "UUID",
+						"type": "string"
+					}, {
+						"name": "version",
+						"type": "int"
+					}]
+				}
+			}]
+		}
+	}, {
+		"name": "metodoDePago",
+		"type": "string"
+	}, {
+		"name": "descuento",
+		"type": "int"
+	}, {
+		"name": "tipoDeComprobante",
+		"type": "string"
+	}, {
+		"name": "noCertificado",
+		"type": "string"
+	}, {
+		"name": "version",
+		"type": "double"
+	}, {
+		"name": "tipoCambio",
+		"type": "int"
+	}, {
+		"name": "fecha",
+		"type": "string"
+	}, {
+		"name": "receptor",
+		"type": {
+			"type": "record",
+			"name": "comprobante",
+			"namespace": "receptor",
+			"fields": [{
+				"name": "domicilio",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "domicilio.receptor",
+					"fields": [{
+						"name": "noExterior",
+						"type": "int"
+					}, {
+						"name": "codigoPostal",
+						"type": "string"
+					}, {
+						"name": "municipio",
+						"type": "string"
+					}, {
+						"name": "calle",
+						"type": "string"
+					}, {
+						"name": "pais",
+						"type": "string"
+					}]
+				}
+			}, {
+				"name": "nombre",
+				"type": "string"
+			}, {
+				"name": "rfc",
+				"type": "string"
+			}]
+		}
+	}, {
+		"name": "conceptos",
+		"type": {
+			"type": "record",
+			"name": "comprobante",
+			"namespace": "conceptos",
+			"fields": [{
+				"name": "concepto",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "concepto.conceptos",
+					"fields": [{
+						"name": "descripcion",
+						"type": "string"
+					}, {
+						"name": "unidad",
+						"type": "string"
+					}, {
+						"name": "cantidad",
+						"type": "int"
+					}, {
+						"name": "complementoConcepto",
+						"type": "string"
+					}, {
+						"name": "importe",
+						"type": "double"
+					}, {
+						"name": "valorUnitario",
+						"type": "double"
+					}]
+				}
+			}]
+		}
+	}, {
+		"name": "impuestos",
+		"type": {
+			"type": "record",
+			"name": "comprobante",
+			"namespace": "impuestos",
+			"fields": [{
+				"name": "traslados",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "traslados.impuestos",
+					"fields": [{
+						"name": "traslado",
+						"type": {
+							"type": "record",
+							"name": "comprobante",
+							"namespace": "traslado.traslados.impuestos",
+							"fields": [{
+								"name": "impuesto",
+								"type": "string"
+							}, {
+								"name": "tasa",
+								"type": "int"
+							}, {
+								"name": "importe",
+								"type": "double"
+							}]
+						}
+					}]
+				}
+			}, {
+				"name": "totalImpuestosTrasladados",
+				"type": "double"
+			}]
+		}
+	}, {
+		"name": "serie",
+		"type": "string"
+	}, {
+		"name": "folio",
+		"type": "int"
+	}, {
+		"name": "formaDePago",
+		"type": "string"
+	}, {
+		"name": "emisor",
+		"type": {
+			"type": "record",
+			"name": "comprobante",
+			"namespace": "emisor",
+			"fields": [{
+				"name": "expedidoEn",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "expedidoEn.emisor",
+					"fields": [{
+						"name": "noExterior",
+						"type": "string"
+					}, {
+						"name": "estado",
+						"type": "string"
+					}, {
+						"name": "codigoPostal",
+						"type": "string"
+					}, {
+						"name": "municipio",
+						"type": "string"
+					}, {
+						"name": "calle",
+						"type": "string"
+					}, {
+						"name": "colonia",
+						"type": "string"
+					}, {
+						"name": "pais",
+						"type": "string"
+					}]
+				}
+			}, {
+				"name": "regimenFiscal",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "regimenFiscal.emisor",
+					"fields": [{
+						"name": "Regimen",
+						"type": "string"
+					}]
+				}
+			}, {
+				"name": "domicilioFiscal",
+				"type": {
+					"type": "record",
+					"name": "comprobante",
+					"namespace": "domicilioFiscal.emisor",
+					"fields": [{
+						"name": "noExterior",
+						"type": "string"
+					}, {
+						"name": "estado",
+						"type": "string"
+					}, {
+						"name": "codigoPostal",
+						"type": "string"
+					}, {
+						"name": "municipio",
+						"type": "string"
+					}, {
+						"name": "calle",
+						"type": "string"
+					}, {
+						"name": "localidad",
+						"type": "string"
+					}, {
+						"name": "colonia",
+						"type": "string"
+					}, {
+						"name": "pais",
+						"type": "string"
+					}]
+				}
+			}, {
+				"name": "nombre",
+				"type": "string"
+			}, {
+				"name": "rfc",
+				"type": "string"
+			}]
+		}
+	}]
+}
