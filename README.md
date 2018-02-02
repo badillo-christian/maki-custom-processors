@@ -8,3 +8,9 @@
 |      +-- VALIDOS
 |      +-- NO_VALIDOS
 ```
+
+* Construcción del NAR
+
+```
+mvn clean install
+```

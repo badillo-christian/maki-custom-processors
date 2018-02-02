@@ -1,0 +1,3 @@
+com.praxis.maki.processors.XMLtoJSONProcessor
+com.praxis.maki.processors.ValidateFactura32Processor
+com.praxis.maki.processors.AvroWriterProcessor
